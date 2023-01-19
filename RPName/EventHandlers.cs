@@ -19,7 +19,7 @@
 
                 if (newRole == RoleTypeId.Spectator && RPName.Instance.Config.ReturnNameAfterDeath)
                 {
-                    player.DisplayNickname = player.Nickname;
+                    player.DisplayNickname = "";
                     return;
                 }
 
@@ -44,7 +44,7 @@
 
                 if (newRole.GetTeam() == Team.ChaosInsurgency && RPName.Instance.Config.ClassName.Any(x => x.Key.GetTeam() == Team.ChaosInsurgency))
                 {
-                    player.DisplayNickname = RPName.Instance.Config.ClassName.Where(x => x.Key.GetTeam() == Team.ChaosInsurgency).First().Value + RPName.Instance.Config.HumanName.RandomItem();
+                    player.DisplayNickname = RPName.Instance.Config.ClassName.Where(x => x.Key.GetTeam() == Team.ChaosInsurgency).First().Value + (RPName.Instance.Config.UseHumanName ? RPName.Instance.Config.HumanName.RandomItem() : player.Nickname);
                     return;
                 }
 
