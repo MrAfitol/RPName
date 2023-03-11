@@ -35,6 +35,9 @@
         [Description("Use human names? (If false, name will be player's nickname)")]
         public bool UseHumanName { get; set; } = true;
 
+        [Description("If the parameter is enabled, the player's nickname will be displayed as a last name, but the UseHumanName parameter must be enabled")]
+        public bool NickLastName { get; set; } = false;
+
         [Description("Human names")]
         public List<string> HumanName { get; set; } = new List<string>()
         {
