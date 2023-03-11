@@ -41,6 +41,8 @@ class_name:
   ChaosConscript: 'Chaos Agent '
 # Use human names? (If false, name will be player's nickname)
 use_human_name: true
+# If the parameter is enabled, the player's nickname will be displayed as a last name, but the UseHumanName parameter must be enabled
+nick_last_name: true
 # Human names
 human_name:
 - James
