@@ -106,3 +106,5 @@ human_name:
 # Return name after death?
 return_name_after_death: true
 ```
+## Wiki
+**Be sure to check out the [Wiki](https://github.com/MrAfitol/RPName/wiki)**
