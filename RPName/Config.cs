@@ -6,14 +6,11 @@
 
     public class Config
     {
-        [Description("Max number in ClassD name")]
+        [Description("Max random number.")]
         public int MaxNumber { get; set; } = 9999;
 
-        [Description("Show SCP number? (If false, name will be SCP-###)")]
-        public bool ShowNumberSCP { get; set; } = true;
-
-        [Description("A list of roles and their names or designations")]
-        public Dictionary<RoleTypeId, string> ClassName { get; set; } = new Dictionary<RoleTypeId, string>() 
+        [Description("List of roles and their display names. (%HumanName% - Rp-name of the player, %NickName% - Nickname of the player, %RandNum% - Generated random number)")]
+        public Dictionary<RoleTypeId, string> ClassName { get; set; } = new Dictionary<RoleTypeId, string>()
         {
             { RoleTypeId.Scp049, "SCP-049" },
             { RoleTypeId.Scp0492, "SCP-049-2" },
@@ -22,23 +19,20 @@
             { RoleTypeId.Scp106, "SCP-106" },
             { RoleTypeId.Scp173, "SCP-173" },
             { RoleTypeId.Scp939, "SCP-939" },
-            { RoleTypeId.ClassD, "D-" },
-            { RoleTypeId.Scientist, "Dr. " },
-            { RoleTypeId.FacilityGuard, "Guard " },
-            { RoleTypeId.NtfCaptain, "Capitan " },
-            { RoleTypeId.NtfSergeant, "Sergeant " },
-            { RoleTypeId.NtfPrivate, "Private " },
-            { RoleTypeId.NtfSpecialist, "Specialist " },
-            { RoleTypeId.ChaosConscript, "Chaos Agent " }
+            { RoleTypeId.ClassD, "D-%RandNum%" },
+            { RoleTypeId.Scientist, "Dr. %HumanName%" },
+            { RoleTypeId.FacilityGuard, "Guard %HumanName%" },
+            { RoleTypeId.NtfCaptain, "Capitan %HumanName%" },
+            { RoleTypeId.NtfSergeant, "Sergeant %HumanName%" },
+            { RoleTypeId.NtfPrivate, "Private %HumanName%" },
+            { RoleTypeId.NtfSpecialist, "Specialist %HumanName%" },
+            { RoleTypeId.ChaosConscript, "Chaos Agent %HumanName%" },
+            { RoleTypeId.ChaosMarauder, "Chaos Agent %HumanName%" },
+            { RoleTypeId.ChaosRepressor, "Chaos Agent %HumanName%" },
+            { RoleTypeId.ChaosRifleman, "Chaos Agent %HumanName%" }
         };
 
-        [Description("Use human names? (If false, name will be player's nickname)")]
-        public bool UseHumanName { get; set; } = true;
-
-        [Description("If the parameter is enabled, the player's nickname will be displayed as a last name, but the UseHumanName parameter must be enabled")]
-        public bool NickLastName { get; set; } = false;
-
-        [Description("Human names")]
+        [Description("Human names.")]
         public List<string> HumanName { get; set; } = new List<string>()
         {
             "James",

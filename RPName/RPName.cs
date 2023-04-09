@@ -2,7 +2,6 @@
 {
     using PluginAPI.Core;
     using PluginAPI.Core.Attributes;
-    using PluginAPI.Enums;
     using PluginAPI.Events;
 
     public class RPName
@@ -12,8 +11,7 @@
         [PluginConfig("configs/rp-name.yml")]
         public Config Config;
 
-        [PluginPriority(LoadPriority.Highest)]
-        [PluginEntryPoint("RPName", "1.0.6", "A plugin that changes the names of players on RP names.", "MrAfitol")]
+        [PluginEntryPoint("RPName", "1.0.7", "A plugin that changes the names of players on RP names.", "MrAfitol")]
         void LoadPlugin()
         {
             Instance = this;

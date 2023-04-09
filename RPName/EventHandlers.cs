@@ -18,48 +18,21 @@
             {
                 Timing.CallDelayed(0.1f, () => {
                     if (player == null) return;
-
-                    if (newRole == RoleTypeId.Spectator && RPName.Instance.Config.ReturnNameAfterDeath)
-                    {
-                        player.DisplayNickname = "";
-                        return;
-                    }
-
-                    if (newRole == RoleTypeId.ClassD && RPName.Instance.Config.ClassName.ContainsKey(newRole))
-                    {
-                        player.DisplayNickname = RPName.Instance.Config.ClassName[newRole] + Random.Range(0, RPName.Instance.Config.MaxNumber);
-                        return;
-                    }
-
-                    if (newRole.GetTeam() == Team.SCPs)
-                    {
-                        if (RPName.Instance.Config.ShowNumberSCP && RPName.Instance.Config.ClassName.ContainsKey(newRole))
-                        {
-                            player.DisplayNickname = RPName.Instance.Config.ClassName[newRole];
-                        }
-                        else
-                        {
-                            player.DisplayNickname = "SCP-###";
-                        }
-                        return;
-                    }
-
-                    if (newRole.GetTeam() == Team.ChaosInsurgency && RPName.Instance.Config.ClassName.Any(x => x.Key.GetTeam() == Team.ChaosInsurgency))
-                    {
-                        player.DisplayNickname = RPName.Instance.Config.ClassName.Where(x => x.Key.GetTeam() == Team.ChaosInsurgency).First().Value + (RPName.Instance.Config.UseHumanName ? (RPName.Instance.Config.NickLastName ? RPName.Instance.Config.HumanName.RandomItem() + " " + player.Nickname : RPName.Instance.Config.HumanName.RandomItem()) : player.Nickname);
-                        return;
-                    }
-
-                    if (RPName.Instance.Config.ClassName.ContainsKey(newRole))
-                    {
-                        player.DisplayNickname = RPName.Instance.Config.ClassName[newRole] + (RPName.Instance.Config.UseHumanName ? (RPName.Instance.Config.NickLastName ? RPName.Instance.Config.HumanName.RandomItem() + " " + player.Nickname : RPName.Instance.Config.HumanName.RandomItem()) : player.Nickname);
-                    }
+                    if (newRole == RoleTypeId.Spectator && !RPName.Instance.Config.ReturnNameAfterDeath && !RPName.Instance.Config.ClassName.ContainsKey(newRole)) return;
+                    player.DisplayNickname = GetPlayerRPName(player, newRole);
                 });
             }
             catch (Exception e)
             {
                 Log.Error("[RPName] [Event: OnChangingRole] " + e.ToString());
             }
+        }
+
+        public string GetPlayerRPName(Player player, RoleTypeId newRole)
+        {
+            if (newRole == RoleTypeId.Spectator && RPName.Instance.Config.ReturnNameAfterDeath && !RPName.Instance.Config.ClassName.ContainsKey(newRole)) return string.Empty;
+            if (!RPName.Instance.Config.ClassName.ContainsKey(newRole)) return string.Empty;
+            return RPName.Instance.Config.ClassName.Where(x => x.Key == newRole).First().Value.Replace("%RandNum%", Random.Range(0, RPName.Instance.Config.MaxNumber).ToString()).Replace("%HumanName%", RPName.Instance.Config.HumanName.RandomItem()).Replace("%NickName%", player.Nickname.ToString());
         }
     }
 }
