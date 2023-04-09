@@ -18,11 +18,9 @@ A plugin that changes the names of players on RP names.
   
  ## Config
 ```yml
-# Max number in ClassD name
+# Max random number.
 max_number: 9999
-# Show SCP number? (If false, name will be SCP-###)
-show_number_s_c_p: true
-# A list of roles and their names or designations
+# List of roles and their display names. (%HumanName% - Rp-name of the player, %NickName% - Nickname of the player, %RandNum% - Generated random number)
 class_name:
   Scp049: SCP-049
   Scp0492: SCP-049-2
@@ -31,19 +29,18 @@ class_name:
   Scp106: SCP-106
   Scp173: SCP-173
   Scp939: SCP-939
-  ClassD: D-
-  Scientist: 'Dr. '
-  FacilityGuard: 'Guard '
-  NtfCaptain: 'Capitan '
-  NtfSergeant: 'Sergeant '
-  NtfPrivate: 'Private '
-  NtfSpecialist: 'Specialist '
-  ChaosConscript: 'Chaos Agent '
-# Use human names? (If false, name will be player's nickname)
-use_human_name: true
-# If the parameter is enabled, the player's nickname will be displayed as a last name, but the UseHumanName parameter must be enabled
-nick_last_name: true
-# Human names
+  ClassD: D-%RandNum%
+  Scientist: Dr. %HumanName%
+  FacilityGuard: Guard %HumanName%
+  NtfCaptain: Capitan %HumanName%
+  NtfSergeant: Sergeant %HumanName%
+  NtfPrivate: Private %HumanName%
+  NtfSpecialist: Specialist %HumanName%
+  ChaosConscript: Chaos Agent %HumanName%
+  ChaosMarauder: Chaos Agent %HumanName%
+  ChaosRepressor: Chaos Agent %HumanName%
+  ChaosRifleman: Chaos Agent %HumanName%
+# Human names.
 human_name:
 - James
 - Robert
