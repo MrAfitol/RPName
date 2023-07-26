@@ -1,9 +1,9 @@
-﻿namespace RPName
-{
-    using PlayerRoles;
-    using System.Collections.Generic;
-    using System.ComponentModel;
+﻿using PlayerRoles;
+using System.Collections.Generic;
+using System.ComponentModel;
 
+namespace RPName
+{
     public class Config
     {
         [Description("Max random number.")]
@@ -100,5 +100,11 @@
 
         [Description("Return name after death?")]
         public bool ReturnNameAfterDeath { get; set; } = true;
+
+        [Description("Block words in rp name.")]
+        public List<string> BlockWordsInRPName { get; set; } = new List<string>()
+        {
+            "BlockWord"
+        };
     }
 }
