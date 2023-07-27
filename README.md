@@ -1,6 +1,6 @@
 # RPName
-[![GitHub release](https://flat.badgen.net/github/release/MrAfitol/RPName)](https://github.com/MrAfitol/RPName/releases/)
-![GitHub downloads](https://flat.badgen.net/github/assets-dl/MrAfitol/RPName)
+[![Version](https://img.shields.io/github/v/release/MrAfitol/RPName?sort=semver&style=flat-square&color=blue&label=Version)](https://github.com/MrAfitol/RPName/releases)
+[![Downloads](https://img.shields.io/github/downloads/MrAfitol/RPName/total?style=flat-square&color=yellow&label=Downloads)](https://github.com/MrAfitol/RPName/releases)
 
 A plugin that changes the names of players on RP names.
 ## How download ?
