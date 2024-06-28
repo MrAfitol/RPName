@@ -15,7 +15,7 @@ namespace RPName
 
         public static string UserDataFolder { get; private set; }
 
-        [PluginEntryPoint("RPName", "1.0.8", "A plugin that changes the names of players on RP names.", "MrAfitol")]
+        [PluginEntryPoint("RPName", "1.0.9", "A plugin that changes the names of players on RP names.", "MrAfitol")]
         void LoadPlugin()
         {
             Instance = this;

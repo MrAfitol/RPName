@@ -15,6 +15,8 @@ namespace RPName.Commands
 
         public string Description => "Set your rp name";
 
+        public bool SanitizeResponse => true;
+
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             Player player = Player.Get(sender);
